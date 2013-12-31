@@ -13,6 +13,16 @@ project/plugins/project/
 .scala_dependencies
 
 # Eclipse specific
+*.pydevproject
 .project
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
 .classpath
-.cache
+.settings/
+.loadpath
