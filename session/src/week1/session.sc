@@ -18,4 +18,13 @@ object session {
   sqrt(2)                                         //> res0: Double = 1.4142156862745097
   sqrt(4)                                         //> res1: Double = 2.0000000929222947
   sqrt(1e-6)                                      //> res2: Double = 0.0010005538710539446
+  
+  def factorialTailRec(x: Int, acum: Int = 1): Int =
+    if (x == 0) 1
+    else if (x == 1) acum
+    else factorialTailRec(x - 1, x * acum)        //> factorialTailRec: (x: Int, acum: Int)Int
+  
+
+  factorialTailRec(13)                            //> res3: Int = 1932053504
+  
 }
