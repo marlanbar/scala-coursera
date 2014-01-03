@@ -77,6 +77,11 @@ class FunSetSuite extends FunSuite {
     val s1 = singletonSet(1)
     val s2 = singletonSet(2)
     val s3 = singletonSet(3)
+    val empty = diff(s1, s1)
+    val s1s2 = union(s1, s2)
+    val s2s3 = union(s2, s3)
+    val s1s2s3 = union(s1s2, s2s3)
+
   }
 
   /**
@@ -86,7 +91,7 @@ class FunSetSuite extends FunSuite {
    * Once you finish your implementation of "singletonSet", exchange the
    * function "ignore" by "test".
    */
-  ignore("singletonSet(1) contains 1") {
+  test("singletonSet(1) contains 1") {
     
     /**
      * We create a new instance of the "TestSets" trait, this gives us access
@@ -101,7 +106,13 @@ class FunSetSuite extends FunSuite {
     }
   }
 
-  ignore("union contains all elements") {
+  test("singletonSet(1) does not contains 2") {
+    new TestSets {
+      assert(!contains(s1, 2), "Singleton")
+    }
+  }
+  
+  test("union contains all elements") {
     new TestSets {
       val s = union(s1, s2)
       assert(contains(s, 1), "Union 1")
@@ -109,4 +120,40 @@ class FunSetSuite extends FunSuite {
       assert(!contains(s, 3), "Union 3")
     }
   }
-}
+  
+  test("intersect contains the set of all elements that are both in `s` and `t`") {
+    new TestSets {
+      val inter = intersect(s1s2, s2s3)
+      assert(contains(inter, 2), "Intersect 2")
+      assert(!contains(inter, 1), "Intersect 1")
+      assert(!contains(inter, 3), "Intersect 3")
+    }
+  }
+  
+  test("diff contains the set of all elements of `s` that are not in `t`.") {
+    new TestSets {
+      val differ = diff(s1s2, s2s3)
+      assert(contains(differ, 1), "diff 1")
+      assert(!contains(differ, 2), "diff 2")
+      assert(!contains(differ, 3), "diff 3")
+    }
+  }
+  
+ test("filter contains the subset of `s` for which `p` holds.") {
+    new TestSets {
+     val fil = filter(s1s2s3, Int => Int >= 2)
+     assert(contains(fil, 2), "fil 2")
+     assert(contains(fil, 3), "fil 3")
+     assert(!contains(fil, 1), "fil 1")
+    }
+  }
+ 
+ test("forall is equal to p(-Bound) with empty sets") {
+   new TestSets {
+   }
+ }
+ 
+// test("forall )
+// 
+// 
+ }

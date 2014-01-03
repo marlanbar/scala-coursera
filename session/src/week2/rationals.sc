@@ -7,7 +7,7 @@ object rationals {
 	val z = new Rational(3, 2)                //> z  : week2.Rational = 3/2
 	x.add(y)                                  //> res0: week2.Rational = 22/21
 	x.neg()                                   //> res1: week2.Rational = -1/3
-	x.add(x.neg())                            //> res2: week2.Rational = 0/9
+	x.sub(y).sub(z)                           //> res2: week2.Rational = -79/42
 }
 
 class Rational(x: Int, y: Int) {
