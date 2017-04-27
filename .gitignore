@@ -1,5 +1,6 @@
 *.class
 *.log
+.DS_Store
 
 # sbt specific
 dist/*
@@ -24,3 +25,5 @@ local.properties
 .loadpath
 .cache
 .worksheet
+
+
