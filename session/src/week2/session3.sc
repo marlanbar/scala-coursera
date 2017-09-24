@@ -22,4 +22,5 @@ object session3 {
 	def sqrt(x: Double) = fixedPoint(averageDamp(y => x / y))(1)
                                                   //> sqrt: (x: Double)Double
 	sqrt(2)                                   //> res0: Double = 1.4142135623746899
+	sqrt(3)
 }

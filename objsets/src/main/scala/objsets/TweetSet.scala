@@ -169,7 +169,6 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
     right.foreach(f)
   }
 
-  @tailrec
   final def mostRetweeted: Tweet =
     if (left.isEmpty || right.isEmpty) elem
     else if (left.isEmpty) (right.incl(elem)).mostRetweeted
